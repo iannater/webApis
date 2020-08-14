@@ -1,3 +1,6 @@
+
+/* Styling for main index page */
+
 #coding-title{
 text-align: center
 }
@@ -8,10 +11,46 @@ text-align: center
 }
 
 #high{
-    color: purple;
+    color: green;
 }
 
 p{
-    margin-right: 25%;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+#startButton{
+margin: 20px;
+
+}
+
+.btn{
+    margin-right: 20px;
     
+}
+
+#question{
+    text-align: center;
+    font-size: 2vw;
+
+}
+
+#choices{
+margin: 30px;
+display: block;
+}
+
+/* Styling for Highscores page */
+#highDiv{
+text-align: center;
+padding: 100px;
+
+}
+/* Buttons */
+#highButtons{
+margin: 40px;
+}
+
+#goBack{
+margin-right: 10px;
 }

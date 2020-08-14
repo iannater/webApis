@@ -3,36 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" 
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
-    crossorigin="anonymous">
+    <title>Ian Quiz</title>
+    <!-- This is the link for bootstrap -->
+    <link   rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+            crossorigin="anonymous">
+    <!-- Link to the local css page -->
     <link rel="stylesheet" href="./Assets/style.css">
+   
+
 </head>
 <header>
+    <!-- Container that is colding the header content for the timer and view highscores -->
 <div class="container-fluid">
     <div class="row justify-content-between">
         <div class="col-2">
+    <!-- This link is set to the highscores page -->
             <a id="high" href="./Assets/highscore.html">View Highscores</a>
         </div>
         <div class="col-1">
-            <p id="time">Time: 20</p>
+            <p><b>Time:</b><span id='time'></span></p>
         </div>
     </div>
 </div>
 </header>
 <body>
+    <!--Section that is holdig the quiz title, paragraph, and button to start the quiz  -->
     <section>
         <br><br>
         <div id="coding">
             <h2 id="coding-title">Ian's Coding Quiz Challenge!</h2>
-            <p> Click on the link below to take a brief question. Don't worry! This quiz is only made up of things that I understand so far and that's not a lot. </p>
+            <p> Click on the link below to take a brief quiz. Don't worry! This quiz is only made up of things that I understand, and so far that's not a lot. </p>
+            <button id="startButton" type="button" class="btn btn-success">Start Quiz</button>
         </div>
-
-
-<!-- Stopped when I was trying to center the p text under the title. Could get it to work in the browser but when I loaded it in the actual file it messed the whole site up. Looks like I will have to mess with it in bootstrap.  -->
+    <!-- This is the hidden fields for the quiz questions and answers -->
+        <div id="quiz">
+            <div id="question"></div>
+            <div id="choices"></div>
+        </div>
+        
 
     </section>
+     <!-- Link to Jquery -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <!-- Link to local Javascript file -->
+     <script src="./Assets/java.js"></script>
     
 </body>
 </html>
