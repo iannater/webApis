@@ -1,53 +1,33 @@
-// create a variable for the button that starts the quiz
+//Hide the quiz before the start button is clicked
 $('#quiz').hide();
+// create a variable for the button that starts the quiz
 var startButton = $("#startButton");
 var coding = $("#coding");
 //Variables needed for the questions, choices, timer
 var timeDisplay = $("#time");
 var questionDiv = $("#question");
-var choice1 = $("#1");
-var choice2 = $("#2");
-var choice3 = $("#3");
-var choice4 = $("#4");
 
 const  questions = [
     {
-        question : "What does an id do?",
-        choices: ["A. Change the type of document", "B. Allow you to uniquely target a specific element", "C. Indents text", "D. IDK man" ],
-        correct : "2"
+        question : "What does an ID do?",
+        choices: ["A. Change the type of document", "B. Allow you to uniquely target a specific element", "C. Indents text", "D. IDK man" ]
     },
     {
-        question : "CSS stand for?",
-        choice1 : "Course Style Script",
-        choice2 : "Curious Special Script",
-        choice3 : "Cascading Style Sheet",
-        choice4 : "IDK man",
-        correct : "3"
+        question : "Question # 2?",
+        choices: ["A. Change the type of document", "B. Allow you to uniquely target a specific element", "C. Indents text", "D. IDK man" ]
     },
     {
-        question : "What does an id do?",
-        choice1 : "Change the type of document",
-        choice2 : "Allow you to uniquely target a specific element",
-        choice3 : "Indents text",
-        choice4 : "IDK man",
-        correct : "2"
+        question : "Question # 3?",
+        choices: ["A. Change the type of document", "B. Allow you to uniquely target a specific element", "C. Indents text", "D. IDK man" ]
     },
     {
-        question : "What does an id do?",
-        choice1 : "Change the type of document",
-        choice2 : "Allow you to uniquely target a specific element",
-        choice3 : "Indents text",
-        choice4 : "IDK man",
-        correct : "2"
+        question : "Question # 4?",
+        choices: ["A. Change the type of document", "B. Allow you to uniquely target a specific element", "C. Indents text", "D. IDK man" ]
     },
     
     {
-        question : "What does an id do?",
-        choice1 : "Change the type of document",
-        choice2 : "Allow you to uniquely target a specific element",
-        choice3 : "Indents text",
-        choice4 : "IDK man",
-        correct : "2"
+        question : "Question # 5?",
+        choices: ["A. Change the type of document", "B. Allow you to uniquely target a specific element", "C. Indents text", "D. IDK man" ]
     },]
 
 var counter = 75;
@@ -55,40 +35,53 @@ var questionIndex = 0;
 
 
 //Add an event listener to the button so when someone clicks on it the quiz begins
-//startButton.click(startQuiz);
-startButton.on("click", startQuiz);
-//Start the quiz and show questinos. Hide the div for the homepage content. Show the first question with multiple choice answers. Store the correct answer
+startButton.click(startQuiz);
 
-function clickedChoice(){
-   alert('clickede')
-}
+//Start the quiz and show questions. Hide the div for the homepage content. Show the first question with multiple choice answers. Store the correct answer
+
+function startQuiz(){
+    //hide the home page info about the quiz
+    coding.hide();
+    //unhide the quiz content
+    $("#quiz").show();
+    //start counting down a second at a time from the timer 
+    setInterval(timer, 1000);
+    //Display the current question
+    handleQuestions();
+};
 
 function handleQuestions(){
-console.log('working')
+
     var curQuest = questions[questionIndex];
-
     questionDiv.text(curQuest.question);
-
     curQuest.choices.forEach( function(i, choice){
 
         var buttonChoice = $('<button>');
-        buttonChoice.attr("class",  "btn btn-success");
+        buttonChoice.attr("class",  "btn btn-success multiBut");
         buttonChoice.attr("value", choice);
-        buttonChoice.text(i)
-        $("#choices").append(buttonChoice)
-        //assign event listenr to ea button
-        buttonChoice.onclick =  clickedChoice;
+        buttonChoice.text(i);
+        $("#choices").append(buttonChoice);
+        //assign event listenr to each button
+        buttonChoice.click(clickedChoice);
     })
+};
 
+function clickedChoice(){
+    if(choices[1] === true) {
+         alert("you got it right")  
+         console.log(clickedChoice)
+  }
+  else{
+      alert("you got it wrong")
+  }
 }
 
 function timer (){
 
     counter--;
-    console.log(counter)
     timeDisplay.text(counter);
     if(counter == 0){
-        console.log('GAME OVER');
+        alert('GAME OVER');
         //here you would call the function to handle when game is over
     }
     
@@ -103,14 +96,7 @@ function endTimer(){
 
 }
 
-function startQuiz(){
-    console.log("ok")
-    coding.hide();
-    $("#quiz").show();
-    setInterval(timer, 1000);
-    handleQuestions();
 
-};
 //When the user selects an answer display if the users question was correct alert wether it was correct or now. If wrong decrement 15 seconds of time from the timer. 
 
 //repeat five times

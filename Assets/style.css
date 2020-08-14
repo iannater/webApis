@@ -24,20 +24,18 @@ margin: 20px;
 
 }
 
-.btn{
-    margin-right: 20px;
-    
-}
 
 #question{
     text-align: center;
     font-size: 2vw;
-
+    text-decoration: underline;
 }
 
-#choices{
-margin: 30px;
-display: block;
+.multiBut{
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 40%;
 }
 
 /* Styling for Highscores page */
