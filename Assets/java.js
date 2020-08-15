@@ -77,15 +77,12 @@ function clickedChoice(){
 }
 
 function timer (){
-
     counter--;
     timeDisplay.text(counter);
     if(counter == 0){
-        alert('GAME OVER');
+        
         //here you would call the function to handle when game is over
     }
-    
-
 }
 
 //end game function should end the quiz
