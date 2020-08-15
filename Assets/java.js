@@ -55,13 +55,15 @@ function handleQuestions(){
     var curQuest = questions[questionIndex];
     questionDiv.text(curQuest.question);
     curQuest.choices.forEach( function(i, choice){
-
+        //create the button for them to click on
         var buttonChoice = $('<button>');
+        //assign classes to the button to format correctly
         buttonChoice.attr("class",  "btn btn-success multiBut");
+        // Set the value of choice so that the answers show
         buttonChoice.attr("value", choice);
         buttonChoice.text(i);
         $("#choices").append(buttonChoice);
-        //assign event listenr to each button
+        //assign event listener to each button
         buttonChoice.click(clickedChoice);
     })
 };
